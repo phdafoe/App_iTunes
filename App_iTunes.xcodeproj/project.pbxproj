@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BC28A381EAE6F3F0006FD97 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC28A371EAE6F3F0006FD97 /* MovieModel.swift */; };
+		8BC28A3A1EAE705E0006FD97 /* MovieManage+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC28A391EAE705E0006FD97 /* MovieManage+Mapping.swift */; };
+		8BC28A3D1EAE721C0006FD97 /* LocalCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC28A3C1EAE721C0006FD97 /* LocalCoreDataService.swift */; };
 		8BED89C61EA7D3DE00D5695A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED89C51EA7D3DE00D5695A /* AppDelegate.swift */; };
 		8BED89C81EA7D3DE00D5695A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED89C71EA7D3DE00D5695A /* ViewController.swift */; };
 		8BED89CB1EA7D3DE00D5695A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BED89C91EA7D3DE00D5695A /* Main.storyboard */; };
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		41AF9F99BF14E993C0ADF066 /* Pods-App_iTunes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App_iTunes.release.xcconfig"; path = "Pods/Target Support Files/Pods-App_iTunes/Pods-App_iTunes.release.xcconfig"; sourceTree = "<group>"; };
 		425A2654793FFAF0D6C6FC97 /* Pods_App_iTunes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_iTunes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BC28A371EAE6F3F0006FD97 /* MovieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		8BC28A391EAE705E0006FD97 /* MovieManage+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MovieManage+Mapping.swift"; sourceTree = "<group>"; };
+		8BC28A3C1EAE721C0006FD97 /* LocalCoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalCoreDataService.swift; sourceTree = "<group>"; };
 		8BED89C21EA7D3DE00D5695A /* App_iTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App_iTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BED89C51EA7D3DE00D5695A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BED89C71EA7D3DE00D5695A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +65,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8BC28A3B1EAE719F0006FD97 /* SERVICE */ = {
+			isa = PBXGroup;
+			children = (
+				8BED89D71EA7D42A00D5695A /* CoreDataStack.swift */,
+				8BED89DD1EA7D71E00D5695A /* RemoteItunesMovieService.swift */,
+				8BC28A3C1EAE721C0006FD97 /* LocalCoreDataService.swift */,
+			);
+			name = SERVICE;
+			sourceTree = "<group>";
+		};
 		8BED89B91EA7D3DE00D5695A = {
 			isa = PBXGroup;
 			children = (
@@ -81,10 +97,11 @@
 		8BED89C41EA7D3DE00D5695A /* App_iTunes */ = {
 			isa = PBXGroup;
 			children = (
+				8BC28A3B1EAE719F0006FD97 /* SERVICE */,
 				8BED89C51EA7D3DE00D5695A /* AppDelegate.swift */,
 				8BED89E11EA7DA8400D5695A /* APIUTILS.swift */,
 				8BED89C71EA7D3DE00D5695A /* ViewController.swift */,
-				8BED89DC1EA7D4E500D5695A /* SERVICE_MODEL */,
+				8BED89DC1EA7D4E500D5695A /* MODEL */,
 				8BED89C91EA7D3DE00D5695A /* Main.storyboard */,
 				8BED89CC1EA7D3DE00D5695A /* Assets.xcassets */,
 				8BED89CE1EA7D3DE00D5695A /* LaunchScreen.storyboard */,
@@ -93,14 +110,14 @@
 			path = App_iTunes;
 			sourceTree = "<group>";
 		};
-		8BED89DC1EA7D4E500D5695A /* SERVICE_MODEL */ = {
+		8BED89DC1EA7D4E500D5695A /* MODEL */ = {
 			isa = PBXGroup;
 			children = (
-				8BED89D71EA7D42A00D5695A /* CoreDataStack.swift */,
-				8BED89DD1EA7D71E00D5695A /* RemoteItunesMovieService.swift */,
 				8BED89D91EA7D4BC00D5695A /* App_iTunes.xcdatamodeld */,
+				8BC28A371EAE6F3F0006FD97 /* MovieModel.swift */,
+				8BC28A391EAE705E0006FD97 /* MovieManage+Mapping.swift */,
 			);
-			name = SERVICE_MODEL;
+			name = MODEL;
 			sourceTree = "<group>";
 		};
 		C80F4A289189503D6C6ADDA0 /* Pods */ = {
@@ -247,9 +264,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BC28A381EAE6F3F0006FD97 /* MovieModel.swift in Sources */,
 				8BED89D81EA7D42A00D5695A /* CoreDataStack.swift in Sources */,
 				8BED89C81EA7D3DE00D5695A /* ViewController.swift in Sources */,
 				8BED89C61EA7D3DE00D5695A /* AppDelegate.swift in Sources */,
+				8BC28A3A1EAE705E0006FD97 /* MovieManage+Mapping.swift in Sources */,
+				8BC28A3D1EAE721C0006FD97 /* LocalCoreDataService.swift in Sources */,
 				8BED89DE1EA7D71E00D5695A /* RemoteItunesMovieService.swift in Sources */,
 				8BED89E21EA7DA8400D5695A /* APIUTILS.swift in Sources */,
 				8BED89DB1EA7D4BC00D5695A /* App_iTunes.xcdatamodeld in Sources */,

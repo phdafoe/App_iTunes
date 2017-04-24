@@ -159,11 +159,11 @@
             </objects>
             <point key="canvasLocation" x="704.79999999999995" y="92.203898050974516"/>
         </scene>
-        <!--Item-->
+        <!--Para Ver-->
         <scene sceneID="7r0-8X-1NV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mr1-4L-anm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="ver-icon" id="MhV-Jx-Dma"/>
+                    <tabBarItem key="tabBarItem" title="Para Ver" image="ver-icon" id="MhV-Jx-Dma"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hpV-fa-CMJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
