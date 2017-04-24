@@ -10,8 +10,11 @@
 		8BC28A381EAE6F3F0006FD97 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC28A371EAE6F3F0006FD97 /* MovieModel.swift */; };
 		8BC28A3A1EAE705E0006FD97 /* MovieManage+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC28A391EAE705E0006FD97 /* MovieManage+Mapping.swift */; };
 		8BC28A3D1EAE721C0006FD97 /* LocalCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC28A3C1EAE721C0006FD97 /* LocalCoreDataService.swift */; };
+		8BC28A3F1EAE85570006FD97 /* ListaPeliculasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC28A3E1EAE85570006FD97 /* ListaPeliculasViewController.swift */; };
+		8BC28A411EAE856A0006FD97 /* ListaFavoritosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC28A401EAE856A0006FD97 /* ListaFavoritosViewController.swift */; };
+		8BC28A431EAE85790006FD97 /* DetallePeliculaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC28A421EAE85790006FD97 /* DetallePeliculaViewController.swift */; };
+		8BC28A451EAE858F0006FD97 /* PeliculaCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC28A441EAE858F0006FD97 /* PeliculaCustomCell.swift */; };
 		8BED89C61EA7D3DE00D5695A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED89C51EA7D3DE00D5695A /* AppDelegate.swift */; };
-		8BED89C81EA7D3DE00D5695A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED89C71EA7D3DE00D5695A /* ViewController.swift */; };
 		8BED89CB1EA7D3DE00D5695A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BED89C91EA7D3DE00D5695A /* Main.storyboard */; };
 		8BED89CD1EA7D3DE00D5695A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BED89CC1EA7D3DE00D5695A /* Assets.xcassets */; };
 		8BED89D01EA7D3DE00D5695A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BED89CE1EA7D3DE00D5695A /* LaunchScreen.storyboard */; };
@@ -32,9 +35,12 @@
 		8BC28A371EAE6F3F0006FD97 /* MovieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		8BC28A391EAE705E0006FD97 /* MovieManage+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MovieManage+Mapping.swift"; sourceTree = "<group>"; };
 		8BC28A3C1EAE721C0006FD97 /* LocalCoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalCoreDataService.swift; sourceTree = "<group>"; };
+		8BC28A3E1EAE85570006FD97 /* ListaPeliculasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaPeliculasViewController.swift; sourceTree = "<group>"; };
+		8BC28A401EAE856A0006FD97 /* ListaFavoritosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaFavoritosViewController.swift; sourceTree = "<group>"; };
+		8BC28A421EAE85790006FD97 /* DetallePeliculaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetallePeliculaViewController.swift; sourceTree = "<group>"; };
+		8BC28A441EAE858F0006FD97 /* PeliculaCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeliculaCustomCell.swift; sourceTree = "<group>"; };
 		8BED89C21EA7D3DE00D5695A /* App_iTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App_iTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BED89C51EA7D3DE00D5695A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BED89C71EA7D3DE00D5695A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8BED89CA1EA7D3DE00D5695A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BED89CC1EA7D3DE00D5695A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BED89CF1EA7D3DE00D5695A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,6 +81,25 @@
 			name = SERVICE;
 			sourceTree = "<group>";
 		};
+		8BC28A461EAE85A20006FD97 /* VIEWS_CONTROLLERS */ = {
+			isa = PBXGroup;
+			children = (
+				8BC28A3E1EAE85570006FD97 /* ListaPeliculasViewController.swift */,
+				8BC28A401EAE856A0006FD97 /* ListaFavoritosViewController.swift */,
+				8BC28A421EAE85790006FD97 /* DetallePeliculaViewController.swift */,
+				8BC28A441EAE858F0006FD97 /* PeliculaCustomCell.swift */,
+			);
+			name = VIEWS_CONTROLLERS;
+			sourceTree = "<group>";
+		};
+		8BC28A471EAE85AB0006FD97 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8BED89E11EA7DA8400D5695A /* APIUTILS.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		8BED89B91EA7D3DE00D5695A = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +124,8 @@
 			children = (
 				8BC28A3B1EAE719F0006FD97 /* SERVICE */,
 				8BED89C51EA7D3DE00D5695A /* AppDelegate.swift */,
-				8BED89E11EA7DA8400D5695A /* APIUTILS.swift */,
-				8BED89C71EA7D3DE00D5695A /* ViewController.swift */,
+				8BC28A461EAE85A20006FD97 /* VIEWS_CONTROLLERS */,
+				8BC28A471EAE85AB0006FD97 /* API */,
 				8BED89DC1EA7D4E500D5695A /* MODEL */,
 				8BED89C91EA7D3DE00D5695A /* Main.storyboard */,
 				8BED89CC1EA7D3DE00D5695A /* Assets.xcassets */,
@@ -264,12 +289,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BC28A411EAE856A0006FD97 /* ListaFavoritosViewController.swift in Sources */,
+				8BC28A451EAE858F0006FD97 /* PeliculaCustomCell.swift in Sources */,
 				8BC28A381EAE6F3F0006FD97 /* MovieModel.swift in Sources */,
+				8BC28A3F1EAE85570006FD97 /* ListaPeliculasViewController.swift in Sources */,
 				8BED89D81EA7D42A00D5695A /* CoreDataStack.swift in Sources */,
-				8BED89C81EA7D3DE00D5695A /* ViewController.swift in Sources */,
 				8BED89C61EA7D3DE00D5695A /* AppDelegate.swift in Sources */,
 				8BC28A3A1EAE705E0006FD97 /* MovieManage+Mapping.swift in Sources */,
 				8BC28A3D1EAE721C0006FD97 /* LocalCoreDataService.swift in Sources */,
+				8BC28A431EAE85790006FD97 /* DetallePeliculaViewController.swift in Sources */,
 				8BED89DE1EA7D71E00D5695A /* RemoteItunesMovieService.swift in Sources */,
 				8BED89E21EA7DA8400D5695A /* APIUTILS.swift in Sources */,
 				8BED89DB1EA7D4BC00D5695A /* App_iTunes.xcdatamodeld in Sources */,
