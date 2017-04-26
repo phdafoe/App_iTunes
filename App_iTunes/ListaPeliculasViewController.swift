@@ -57,10 +57,34 @@ class ListaPeliculasViewController: UIViewController {
     //MARK: - UTILS
     func loadData(){
         //codigo de CoreData
+        dataProvider.topMovie({ (localResult) in
+            if let moviesData = localResult{
+                self.movies = moviesData
+                DispatchQueue.main.async {
+                    self.myCollectionView.reloadData()
+                }
+            }else{
+                print("no hay registros en CoreData")
+            }
+            
+            
+        }) { (remoteResult) in
+            if let moviesData = remoteResult{
+                self.movies = moviesData
+                DispatchQueue.main.async {
+                    self.myCollectionView.reloadData()
+                    self.customRefreshControll.endRefreshing()
+                }
+            }else{
+                print("No se han encontrado registros")
+            }
+        }
     }
     
+    
     func hideKeyboard(){
-        
+        mySearchBar.resignFirstResponder()
+        self.view.removeGestureRecognizer(tapGR)
     }
 
 }//TODO: - FIN DE LA CLASE
@@ -82,6 +106,86 @@ extension ListaPeliculasViewController : UICollectionViewDelegate, UICollectionV
                             bottom: collectionViewPadding,
                             right: collectionViewPadding)
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return collectionViewPadding
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return movies.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let customCell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PeliculaCustomCell
+        
+        let movieData = movies[indexPath.row]
+        
+        //metodo de creacion de celda
+        configuredCell(customCell, withMovie: movieData)
+        
+        return customCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 113,
+                      height: 170)
+    }
+    
+    
+    /***** SEARCHBAR *******/
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.view.addGestureRecognizer(tapGR)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == ""{
+            //ejecutamos la busqueda
+            loadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let term = searchBar.text{
+            //invocar coredata
+            dataProvider.searchMovies(term, remoteHandler: { (resultMovies) in
+                if let moviesData = resultMovies{
+                    self.movies = moviesData
+                    //Cola principal
+                    DispatchQueue.main.async {
+                        self.myCollectionView.reloadData()
+                        searchBar.resignFirstResponder()
+                    }
+                }
+            })
+        }
+    }
+    
+    
+    
+    
+    
+    //MARK: - UTILS - DELEGATE
+    func configuredCell(_ cell : PeliculaCustomCell, withMovie movie: MovieModel){
+        if let imageData = movie.image{
+            cell.myImageMovie.kf.setImage(with: ImageResource(downloadURL: URL(string: imageData)!),
+                                          placeholder: #imageLiteral(resourceName: "img-loading"),
+                                          options: nil,
+                                          progressBlock: nil,
+                                          completionHandler: nil)
+        }
+    }
+    
     
     
     

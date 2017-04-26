@@ -10,4 +10,6 @@ import UIKit
 
 class PeliculaCustomCell: UICollectionViewCell {
     
+    @IBOutlet weak var myImageMovie: UIImageView!
+    
 }

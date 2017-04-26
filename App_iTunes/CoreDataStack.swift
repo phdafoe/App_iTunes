@@ -17,6 +17,8 @@ class CoreDataStack{
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "App_iTunes")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            print(storeDescription)
+            
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }

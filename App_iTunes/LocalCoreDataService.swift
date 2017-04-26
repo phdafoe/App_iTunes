@@ -74,18 +74,26 @@ class LocalCoreDataService{
     }
     
     func queryTopMovies() -> [MovieModel]?{
+        
         let context = stack.persistentContainer.viewContext
+        
         let request : NSFetchRequest<MovieManager> = MovieManager.fetchRequest()
+        
         let sortDescriptor = NSSortDescriptor(key: "order", ascending: true)
+        
         request.sortDescriptors = [sortDescriptor]
         
         let customPredicate = NSPredicate(format: "favorito = \(false)")
+        
         request.predicate = customPredicate
+        
         do{
             let fetchMovies = try context.fetch(request)
             // Creamos un array de pelicula
             var movie = [MovieModel]()
+            
             for c_manage in fetchMovies{
+                
                 movie.append(c_manage.mappedObject())
             }
             return movie
@@ -112,10 +120,15 @@ class LocalCoreDataService{
     }
     
     func getMovieById(_ id : String, favorito : Bool) -> MovieManager?{
+        
         let context = stack.persistentContainer.viewContext
+        
         let request : NSFetchRequest<MovieManager> = MovieManager.fetchRequest()
+        
         let customPredicate = NSPredicate(format: "id = \(id) and favorito = \(favorito)")
+        
         request.predicate = customPredicate
+        
         do{
             let fetchmovies = try context.fetch(request)
             // si tiene algun registro me debe retornar uno
@@ -162,7 +175,7 @@ class LocalCoreDataService{
     func removeAllnotFavoriteMovies(){
         let context = stack.persistentContainer.viewContext
         let request : NSFetchRequest<MovieManager> = MovieManager.fetchRequest()
-        let customPredicate = NSPredicate(format: "favorito \(false)")
+        let customPredicate = NSPredicate(format: "favorito = \(false)")
         request.predicate = customPredicate
         do{
             let fetchMovies  = try context.fetch(request)
@@ -174,6 +187,37 @@ class LocalCoreDataService{
             try context.save()
         }catch{
             print("Error mientras se esta borrando del CoreData")
+        }
+    }
+    
+    func getFavoriteMovie() -> [MovieModel]?{
+        
+        let context = stack.persistentContainer.viewContext
+        let request : NSFetchRequest<MovieManager> = MovieManager.fetchRequest()
+        let customPredicate = NSPredicate(format: "favorito = \(true)")
+        request.predicate = customPredicate
+        do{
+            let fetchMovies = try context.fetch(request)
+            var movies = [MovieModel]()
+            
+            for c_movieData in fetchMovies {
+                movies.append(c_movieData.mappedObject())
+            }
+            return movies
+            
+        }catch{
+            print("Error mientras obtenemos los favoritos")
+            return nil
+        }
+        
+        
+    }
+    
+    func isFavorite (_ movie : MovieModel) -> Bool{
+        if let _ = getMovieById(movie.id!, favorito: true){
+            return true
+        }else{
+            return false
         }
     }
     

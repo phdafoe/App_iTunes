@@ -16,7 +16,7 @@ class RemoteItunesMovieService {
     //metodo de buscar peliculas y otro para el top con callbacks
     func getTopMovies(completionHandler : @escaping (_ arrayDiccionario : [[String : String]]?) -> ()){
         
-        let urlData = URL(string: "https://itunes.apple.com/es/rss/topmovies/limit=99/json")!
+        let urlData = URL(string: "https://itunes.apple.com/es/rss/topmovies/limit=199/json")!
         
         Alamofire.request(urlData, method: .get).validate().responseJSON { (responseData) in
             switch responseData.result{
