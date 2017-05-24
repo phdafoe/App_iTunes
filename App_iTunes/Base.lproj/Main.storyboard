@@ -76,7 +76,7 @@
                     <connections>
                         <outlet property="myCollectionView" destination="mWl-Yc-fLR" id="UCg-en-Y6b"/>
                         <outlet property="mySearchBar" destination="gj2-55-gq2" id="QZa-yJ-xCJ"/>
-                        <segue destination="j6n-sM-s57" kind="show" id="hhb-4a-NkS"/>
+                        <segue destination="j6n-sM-s57" kind="show" identifier="detalleSegue" id="hhb-4a-NkS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -98,7 +98,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YpR-nh-hpk">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NKK-J2-baa">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="NKK-J2-baa">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -124,6 +124,9 @@
                                             <constraint firstItem="0Qg-vm-nP4" firstAttribute="top" secondItem="S2U-6A-LOl" secondAttribute="top" id="ZqW-NU-Hth"/>
                                         </constraints>
                                         <size key="customSize" width="113" height="170"/>
+                                        <connections>
+                                            <outlet property="myImageMovie" destination="0Qg-vm-nP4" id="wP0-7r-lFf"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -139,7 +142,7 @@
                     <navigationItem key="navigationItem" id="Kom-mQ-7Ck"/>
                     <connections>
                         <outlet property="myCollectionView" destination="YpR-nh-hpk" id="DOD-KM-UkK"/>
-                        <segue destination="j6n-sM-s57" kind="show" id="HTN-PU-HmI"/>
+                        <segue destination="j6n-sM-s57" kind="show" identifier="detalleSegue" id="HTN-PU-HmI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Qd-hH-Vod" sceneMemberID="firstResponder"/>
@@ -346,6 +349,6 @@
         <image name="ver-icon" width="25" height="10"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HTN-PU-HmI"/>
+        <segue reference="hhb-4a-NkS"/>
     </inferredMetricsTieBreakers>
 </document>

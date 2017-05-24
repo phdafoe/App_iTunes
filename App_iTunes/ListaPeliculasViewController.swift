@@ -86,6 +86,23 @@ class ListaPeliculasViewController: UIViewController {
         mySearchBar.resignFirstResponder()
         self.view.removeGestureRecognizer(tapGR)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detalleSegue"{
+            if let indexPathSelected = myCollectionView.indexPathsForSelectedItems?.last{
+                let selectedMovie = movies[indexPathSelected.row]
+                let detalleVC = segue.destination as! DetallePeliculaViewController
+                detalleVC.movie = selectedMovie
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
 
 }//TODO: - FIN DE LA CLASE
 
@@ -142,6 +159,10 @@ extension ListaPeliculasViewController : UICollectionViewDelegate, UICollectionV
                       height: 170)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "detalleSegue", sender: self)
+    }
+    
     
     /***** SEARCHBAR *******/
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -171,10 +192,6 @@ extension ListaPeliculasViewController : UICollectionViewDelegate, UICollectionV
         }
     }
     
-    
-    
-    
-    
     //MARK: - UTILS - DELEGATE
     func configuredCell(_ cell : PeliculaCustomCell, withMovie movie: MovieModel){
         if let imageData = movie.image{
@@ -185,18 +202,6 @@ extension ListaPeliculasViewController : UICollectionViewDelegate, UICollectionV
                                           completionHandler: nil)
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
 

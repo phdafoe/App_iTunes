@@ -26,6 +26,8 @@ class ListaFavoritosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        automaticallyAdjustsScrollViewInsets = false
+        
         setupPadding()
         
         myCollectionView.delegate = self
@@ -39,6 +41,10 @@ class ListaFavoritosViewController: UIViewController {
         loadData()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+    }
+    
     
     //MARK: - UTILS
     func loadData(){
@@ -49,17 +55,17 @@ class ListaFavoritosViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "detalleSegue"{
+            if let indexPathSelected = myCollectionView.indexPathsForSelectedItems?.last{
+                let selectedMovie = movies[indexPathSelected.row]
+                let detalleVC = segue.destination as! DetallePeliculaViewController
+                detalleVC.movie = selectedMovie
+            }
+        }
     }
-    */
 
-}
+}// FIN DE LA CLASE
 
 extension ListaFavoritosViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
@@ -117,36 +123,24 @@ extension ListaFavoritosViewController : UICollectionViewDelegate, UICollectionV
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 113,
-                      height: 170)
+        return CGSize(width: 113, height: 170)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "detalleSegue", sender: self)
     }
 
-    
+
     //MARK: - UTILS - DELEGATE
     func configuredCell(_ cell : PeliculaCustomCell, withMovie movie: MovieModel){
         if let imageData = movie.image{
-            cell.myImageMovie.kf.setImage(with: ImageResource(downloadURL: URL(string: imageData)!),
+            cell.myImageMovie?.kf.setImage(with: ImageResource(downloadURL: URL(string: imageData)!),
                                           placeholder: #imageLiteral(resourceName: "img-loading"),
                                           options: nil,
                                           progressBlock: nil,
                                           completionHandler: nil)
+
         }
     }
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
 
